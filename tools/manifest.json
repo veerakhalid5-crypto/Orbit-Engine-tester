@@ -1,0 +1,37 @@
+{
+  "_note": "Load order. The browser has no module system: every file is a plain script sharing one global scope, concatenated in exactly this order into index.html.",
+  "engine": [
+    "core.js",
+    "pat_a.js",
+    "pat_b.js",
+    "feat.js",
+    "adv_quant.js",
+    "adv_smc.js",
+    "adv_levels.js",
+    "adv_flow.js",
+    "adv_regime.js",
+    "adv_conf.js",
+    "adv_stats.js",
+    "adv_engines.js",
+    "mi_engine.js",
+    "mi_deep.js",
+    "mi_htf.js",
+    "mi_eval.js"
+  ],
+  "backend": [
+    "mi_track.js",
+    "lifecycle.js"
+  ],
+  "engine2": [
+    "mi_backtest.js"
+  ],
+  "backend2": [
+    "mi_net.js",
+    "runtime.js"
+  ],
+  "frontend": [
+    "app_a.js",
+    "app_b.js",
+    "app_c.js"
+  ]
+}
