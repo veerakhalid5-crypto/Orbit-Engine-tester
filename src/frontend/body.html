@@ -1,0 +1,101 @@
+<div class="boot-overlay" id="bootOverlay"><div class="bx"><div class="logo"></div><b>ORBIT AI</b><small>v17 · SENTINEL ENGINE</small><div class="prog"><i id="bootBar" style="width:4%"></i></div><div id="bootText" class="mono">Connecting to Binance…</div></div></div>
+<div class="app">
+  <aside class="side">
+    <div class="brand"><i></i><div>ORBIT AI<small>v17 · SENTINEL ENGINE</small></div></div>
+    <nav class="nav" id="tabs">
+      <button class="tab on" data-tab="sigs"><svg viewBox="0 0 24 24"><path d="M13 3L5 14h6l-1 7 8-11h-6z"/></svg><span class="tl">Live Signals</span><span class="ts">SIGNALS</span><span class="bd" id="bdSigs" hidden></span></button>
+      <button class="tab" data-tab="radar"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4.5"/><path d="M12 12l6-6"/></svg><span class="tl">Radar</span><span class="ts">RADAR</span></button>
+      <button class="tab" data-tab="opps"><svg viewBox="0 0 24 24"><path d="M4 19V9M10 19V5M16 19v-7M22 19H2"/></svg><span class="tl">Opportunities</span><span class="ts">SCAN</span><span class="bd" id="bdOpps" hidden></span></button>
+      <button class="tab" data-tab="mkts"><svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h10"/></svg><span class="tl">Markets</span><span class="ts">MARKETS</span></button>
+      <button class="tab" data-tab="bt"><svg viewBox="0 0 24 24"><path d="M9 3h6M10 3v6l-5 9a2 2 0 0 0 2 3h10a2 2 0 0 0 2-3l-5-9V3"/></svg><span class="tl">Backtest Lab</span><span class="ts">LAB</span></button>
+      <button class="tab" data-tab="perf"><svg viewBox="0 0 24 24"><path d="M3 17l5-5 4 4 8-9M15 7h5v5"/></svg><span class="tl">Performance</span><span class="ts">STATS</span></button>
+      <button class="tab" data-tab="eng"><svg viewBox="0 0 24 24"><path d="M12 2l8 4.5v9L12 20l-8-4.5v-9zM12 11l8-4.5M12 11v9M12 11L4 6.5"/></svg><span class="tl">Engines</span><span class="ts">ENGINES</span></button>
+      <button class="tab" data-tab="sys"><svg viewBox="0 0 24 24"><path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM19 12a7 7 0 0 0-.1-1.2l2-1.5-2-3.4-2.3.9a7 7 0 0 0-2-1.2L14 3h-4l-.6 2.6a7 7 0 0 0-2 1.2l-2.3-.9-2 3.4 2 1.5A7 7 0 0 0 5 12c0 .4 0 .8.1 1.2l-2 1.5 2 3.4 2.3-.9a7 7 0 0 0 2 1.2L10 21h4l.6-2.6a7 7 0 0 0 2-1.2l2.3.9 2-3.4-2-1.5c.1-.4.1-.8.1-1.2z"/></svg><span class="tl">System</span><span class="ts">SYSTEM</span></button>
+    </nav>
+    <div class="side-foot">Decision support, not advice.<br>No result is guaranteed.<br><span id="sideClock"></span></div>
+  </aside>
+  <div class="main">
+    <header class="top">
+      <h1 id="viewTitle">LIVE SIGNALS</h1><span class="sp"></span>
+      <span class="tag" id="hSession">SESSION</span><span class="tag" id="hRegime">REGIME</span>
+      <span class="pill" id="statusPill"><span class="dot" id="dStatus"></span><b id="tStatus">STARTING</b></span>
+    </header>
+    <div class="ticker"><div class="ticker-inner" id="tickerInner"></div></div>
+    <div class="toolbar">
+      <button class="btn go" id="scanBtn">● SCANNING</button>
+      <select class="ctl" id="presetSel" title="Signal preset"><option value="ELITE">Elite</option><option value="STRICT">Strict</option><option value="BALANCED">Balanced</option><option value="EARLY">Early</option><option value="ENGINE">Engine-led</option></select>
+      <button class="btn" id="testBtn" title="Creates one clearly-labelled TEST signal on the live price to check the pipeline (excluded from all statistics)">▶ Test signal</button>
+      <button class="btn" id="setBtn">⚙ Settings</button>
+      <button class="btn" id="bSound" title="Sound alerts">🔔</button>
+      <button class="btn ghost" id="clearBtn" title="Remove TEST signals">Clear tests</button>
+    </div>
+    <div class="health-strip" id="healthStrip"></div>
+    <main class="wrap">
+      <section id="v-sigs">
+        <div id="sigTop"></div>
+        <div class="filter-bar">
+          <input class="ctl" id="fSearch" placeholder="Search coin…" style="width:140px">
+          <select class="ctl" id="fDir"><option value="">Long + Short</option><option value="1">Long only</option><option value="-1">Short only</option></select>
+          <select class="ctl" id="fGrade"><option value="">Any grade</option><option value="S">Grade S</option><option value="A">Grade A+</option><option value="B">Grade B+</option></select>
+          <select class="ctl" id="fHtf"><option value="">Any timeframe alignment</option><option value="ALIGNED">HTF aligned</option><option value="MIXED">HTF mixed</option><option value="UNKNOWN">HTF unknown</option></select>
+          <select class="ctl" id="fConv"><option value="">Any conviction</option><option value="HIGH_CONVICTION">High conviction</option><option value="STANDARD">Standard +</option></select>
+          <select class="ctl" id="fEng"><option value="">Any engine</option></select>
+          <select class="ctl" id="fTf"><option value="">Any detection timeframe</option><option value="1m">1m candles (momentum)</option><option value="5m">5m candles (engines)</option></select>
+          <select class="ctl" id="fVenue"><option value="">All exchanges</option><option value="F">Binance USDT-M futures</option><option value="S">Binance spot</option></select>
+          <select class="ctl" id="fSort"><option value="t">Newest first</option><option value="score">Highest evidence</option><option value="rr">Best R:R</option></select>
+          <span class="note" id="sigSub" style="margin-left:auto"></span>
+        </div>
+        <div id="sigActive"></div>
+        <div class="panel" style="margin-top:14px"><div class="ph"><h2>SIGNAL FEED</h2><span class="sub" id="feedSub">every signal, status change and suppressed setup — one record each</span></div><div class="pb" id="feedBox"></div></div>
+        <div class="panel"><div class="ph"><h2>EARLY WATCH ALERTS</h2><span class="sub">not trade signals — a move may be forming</span></div><div class="list" id="watchList"></div></div>
+        <div class="panel"><div class="ph"><h2>SIGNAL HISTORY</h2><span class="sub" id="histSub"></span></div><div class="tw"><table class="t" id="histTable"></table></div></div>
+      </section>
+      <section id="v-radar" hidden>
+        <div class="grid g4" id="mood"></div>
+        <div class="panel" style="margin-top:14px"><div class="ph"><h2>LIVE PUMP / DUMP SCANNER</h2><span class="sub" id="liveSub"></span></div>
+          <div class="pb"><div class="tb">
+            <div class="seg" id="segLive"><button data-v="live" class="on">LIVE</button><button data-v="hist">HISTORY</button></div>
+            <div class="seg" id="segPD"><button data-v="all" class="on">ALL</button><button data-v="P">PUMP</button><button data-v="D">DUMP</button></div>
+            <label class="mut" style="font:11px var(--mono)">SENSITIVITY</label><select class="ctl" id="selSens"><option>0.5</option><option>1</option><option selected>2</option><option>3</option><option>5</option><option>10</option><option>25</option></select><span class="mut" style="font:11px var(--mono)">% on the live 1-minute candle</span>
+          </div></div>
+          <div class="lc" id="liveCards"></div>
+        </div>
+        <div class="panel"><div class="ph"><h2>WHAT IS HAPPENING RIGHT NOW</h2><span class="sub">answers update automatically</span></div><div class="pb"><div class="grid g3 q" id="nine"></div></div></div>
+      </section>
+      <section id="v-opps" hidden>
+        <div class="tb"><div class="seg" id="segDir"><button data-v="L" class="on">LONG SIDE</button><button data-v="S">SHORT SIDE</button></div>
+          <div class="seg" id="segStage"><button data-v="1" class="on">ALL STAGES</button><button data-v="2">PRE-PUMP+</button><button data-v="3">ACTIVE</button><button data-v="5">EXHAUSTION</button></div>
+          <input class="ctl" id="qSearch" placeholder="Search coin…" style="width:140px"><select class="ctl" id="selVenue"><option value="">All markets</option><option value="F">Perpetuals</option><option value="S">Spot only</option></select><select class="ctl" id="selTier"><option value="">Any liquidity</option><option value="GOOD">Good+ only</option><option value="THIN">Thin+ only</option></select></div>
+        <div class="panel"><div class="ph"><h2 id="oppTitle">STRONGEST EMERGING OPPORTUNITIES</h2><span class="sub" id="oppSub"></span></div><div class="list" id="oppList"></div></div>
+      </section>
+      <section id="v-mkts" hidden>
+        <div id="hydBox"></div>
+        <div class="tb"><input class="ctl" id="mSearch" placeholder="Search…" style="width:160px"><div class="seg" id="segM"><button data-v="" class="on">ALL</button><button data-v="F">PERPS</button><button data-v="S">SPOT</button><button data-v="N">NEW</button></div>
+          <div class="seg" id="segMS"><button data-v="q" class="on">VOLUME</button><button data-v="c">24H %</button><button data-v="o">SCORE</button></div></div>
+        <div class="panel"><div class="ph"><h2>ALL MONITORED MARKETS</h2><span class="sub" id="mSub"></span></div><div class="list" id="mList"></div></div>
+      </section>
+      <section id="v-bt" hidden>
+        <div class="warn info" id="btWarn"></div>
+        <div id="btBody"></div>
+      </section>
+      <section id="v-perf" hidden>
+        <div class="warn info" id="perfWarn"></div>
+        <div id="perfBody"></div>
+      </section>
+      <section id="v-eng" hidden>
+        <div class="warn info" id="engWarn"></div>
+        <div id="engBody"></div>
+      </section>
+      <section id="v-sys" hidden>
+        <div class="panel"><div class="ph"><h2>DATA HEALTH</h2><span class="sub" id="healthSub"></span></div><div class="pb" id="healthBox"></div></div>
+        <div class="panel"><div class="ph"><h2>SIGNAL PIPELINE &amp; FEED AUDIT</h2><span class="sub">where every candidate setup went</span></div><div class="pb" id="pipeBox"></div></div>
+        <div class="panel"><div class="ph"><h2>SELF-TEST</h2><span class="sub">fixed test vectors + live data integrity</span><button class="btn" id="stRun" style="margin-left:10px">Run</button></div><div class="pb" id="stBox"><div class="note">Press Run. The unit checks use small hand-made price sequences with known answers (they are not market data); the integrity checks run on the live candles.</div></div></div>
+        <div class="panel"><div class="ph"><h2>SPEC COVERAGE</h2><span class="sub">what is implemented, partial, or impossible without paid data</span></div><div class="pb tw" id="covBox"></div></div>
+        <div class="panel"><div class="ph"><h2>ENGINE LOG</h2></div><div class="pb log-box" id="logBox"></div></div>
+      </section>
+    </main>
+  </div>
+</div>
+<div class="set-pop" id="setPop"><div id="setBox"></div></div>
+<div class="sheet" id="sheet"><div class="in" id="sheetIn"></div></div>
+<div class="toast" id="toast"></div>
